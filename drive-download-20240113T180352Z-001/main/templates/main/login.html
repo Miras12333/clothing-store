@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/8760c8464a.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- styles -->
+    <title>E-Commerce || Login</title>
+    <style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#login-form {
+  width: 400px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.type_here {
+  font-size: 16px;
+  padding: 15px; 
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  height: 50px; 
+}
+
+button[type="submit"] {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  width: 100%;
+}
+
+button[type="submit"].normal {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+button[type="submit"].normal:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+    </style>
+  </head>
+  <body>
+
+<form id="login-form" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="email">Username</label>
+      <input type="text" name="username" class="type_here"  placeholder="Enter your username">
+    </div>
+    <div class="form-group">
+      <label for="username">Password</label>
+      <input type="password" name="password" class="type_here"  placeholder="Enter your password">
+    </div>
+    <button type="submit" class="normal">Login</button>
+  </form>
+  </body>

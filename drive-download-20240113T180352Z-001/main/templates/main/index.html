@@ -1,0 +1,386 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/8760c8464a.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" />
+    <title>E-Commerce || Home</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <a href="/"
+        ><img src="{% static 'main/img/logo.png' %}" alt="logo picture" class="logo"
+      /></a>
+      <div>
+        <ul id="navbar">
+          <li><a class="active" href="/">home</a></li>
+          <li><a href="shop1">shop</a></li>
+          <li><a href="contact">contact</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="logout">logout</a></li>
+          <li style="text-transform: none;">{{ user.username }}</li>
+          {% else %}
+          <li><a href="login">login</a></li>
+          <li><a href="register">sign in</a></li>
+          {% endif %}
+          <li>
+            <a id="lg-bag" href="{% url 'main:check_cart' %}"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a id="close" href="cart"><i class="fa-solid fa-xmark"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+        <i id="bar" class="fa-solid fa-bars"></i>
+      </div>
+    </header>
+    <!-- hero section start -->
+    <section id="hero" style="background-image: url('{% static 'main/img/hero4.png' %}');">
+      <h4>Exchange offer</h4>
+      <h2>Profitable proposition</h2>
+      <h1>for all products</h1>
+      <p>Save more with discounts!</p>
+    </section>
+    <!-- feature section start -->
+    <section id="feature" class="section-p1">
+      <div class="feature-box">
+        <img src="{% static 'main/img/f2.png' %}" alt="features picture" />
+        <h6>free shipping</h6>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'main/img/f1.png' %}" alt="features picture" />
+        <h6>online order</h6>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'main/img/f3.png' %}" alt="features picture" />
+        <h6>save money</h6>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'main/img/f4.png' %}" alt="features picture" />
+        <h6>promotions</h6>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'main/img/f5.png' %}" alt="features picture" />
+        <h6>happy sell</h6>
+      </div>
+      <div class="feature-box">
+        <img src="{% static 'main/img/f6.png' %}" alt="features picture" />
+        <h6>24/7 support</h6>
+      </div>
+    </section>
+    <!-- product1 section start -->
+    <section id="product1" class="section-p1">
+      <h2>featured products</h2>
+      <p>summer collection new modern design</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="{% static 'main/img/f1.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>Футур рубашка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/f2.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>ромашка рубашка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/f3.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>цветочный сад рубашка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/f4.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>сакура рубашка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img
+            class="product-picture"
+            src="{% static 'main/img/f5.jpg' %}"
+            alt="products picture"
+          />
+          <div class="info">
+            <span>monclear</span>
+            <h5>Поляна рубашка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/f6.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>двойная рубашка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/f7.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>Шаравары</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/f8.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>кошкин кайф накидка</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- banner section -->
+    <section id="banner" class="section-m1" style="background-image: url('{% static 'main/img/b2.jpg' %}');">
+      <h4>repair services</h4>
+      <h2>up to <span>70% off</span> - all t-shirts & accesories</h2>
+    </section>
+    <!-- product2 section start -->
+    <section id="product1" class="section-p1">
+      <h2>new arrivals</h2>
+      <p>summer collection new modern design</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="{% static 'main/img/n1.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка голубая</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n2.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка пон</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n3.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка белая</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n4.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка хаки</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n5.jpg' %}"alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка джинсовая</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n6.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>шорты модные</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n7.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка коричнивая</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+        <div class="pro">
+          <img src="{% static 'main/img/n8.jpg' %}" alt="products picture" />
+          <div class="info">
+            <span>monclear</span>
+            <h5>рубашка черная</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+    <!-- newsletter section  -->
+    <section id="newsletter" class="section-p1 section-m1">
+    </section>
+    <!-- footer section -->
+    <footer class="section-p1">
+      <div class="col">
+        <h4>contacts</h4>
+        <p><strong>address:</strong> Kazahstan, astana</p>
+        <p><strong>number:</strong> +7 775 442 0663</p>
+        <p><strong>working hours:</strong> 24/7</p>
+        <div class="follow">
+          <h4>subscribe</h4>
+          <div class="icon">
+            <a href="https://www.instagram.com/mirasamanbai/?next=%2F"
+              ><i class="fa-brands fa-instagram-square"></i
+            ></a>
+            <a href="https://vk.com/id616254776"
+              ><i class="fa-brands fa-vk"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>about</h4>
+        <a href="Delivery">delivery information</a>
+        <a href="privat">privacy policy</a>
+      </div>
+      <div class="col">
+        <h4>my account</h4>
+        <a href="register">Sign in</a>
+      </div>
+      <div class="copyright">
+        <p>
+          &copy; <span class="date">2023</span> 
+        </p>
+      </div>
+    </footer>
+    <!-- javascript -->
+    <script src="{% static 'main/js/app.js' %}"></script>
+  </body>
+</html>

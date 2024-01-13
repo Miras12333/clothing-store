@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/8760c8464a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" />
+  <title>E-Commerce || Shop</title>
+</head>
+<body>
+
+<!-- Header Section -->
+<header id="header">
+  <a href="/"><img src="{% static 'main/img/logo.png' %}" alt="logo picture" class="logo" /></a>
+  <div>
+    <ul id="navbar">
+      <li><a href="/">home</a></li>
+      <li><a class="active" href="shop1">shop</a></li>
+      <li><a href="contact">contact</a></li>
+      {% if user.is_authenticated %}
+          <li><a href="logout">logout</a></li>
+          <li style="text-transform: none;">{{ user.username }}</li>
+          {% else %}
+          <li><a href="login">login</a></li>
+          <li><a href="register">sign in</a></li>
+          {% endif %}
+      <li><a id="lg-bag" href="{% url 'main:check_cart' %}"><i class="fa-solid fa-bag-shopping"></i></a></li>
+      <a id="close" href="#"><i class="fa-solid fa-xmark"></i></a>
+    </ul>
+  </div>
+  <div id="mobile">
+    <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+    <i id="bar" class="fa-solid fa-bars"></i>
+  </div>
+</header>
+
+<section id="page-header" style="background-image: url('{% static 'main/img/b1.jpg' %}');">
+  <h2>#stay home</h2>
+  <p>save more with coupons & up to 70% off!</p>
+</section>
+<section id="product1" class="section-p1">
+  <div class="pro-container" id="productContainer">
+    {% for el in jackets %}
+    <div class = "pro">
+    <img src="{{el.photo.url}}" alt="product picture" />
+        <div class="info">
+          <span>monclear</span>
+          <h5>{{el.name}}</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>{{el.price}}$</h4>
+        </div>
+        <a class="cart" href="{% url 'main:add' item_type='jackets' item_id=el.id %}"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+        {% endfor %}
+  </div>
+</section>
+<section id="pagination" class="section-p1">
+  <a href="shop1">Jackets</a>
+  <a href="shop2">Jeans</a>
+  <a href="shop3">T-shirts</a>
+  <a href="shop4">Shirts</a>
+</section>
+
+<!-- newsletter section  -->
+<section id="newsletter" class="section-p1 section-m1">
+</section>
+<!-- footer section -->
+<footer class="section-p1">
+  <div class="col">
+    <h4>contacts</h4>
+    <p><strong>address:</strong> Kazahstan, astana</p>
+    <p><strong>number:</strong> +7 775 442 0663</p>
+    <p><strong>working hours:</strong> 24/7</p>
+    <div class="follow">
+      <h4>subscribe</h4>
+      <div class="icon">
+        <a href="https://www.instagram.com/mirasamanbai/?next=%2F"
+          ><i class="fa-brands fa-instagram-square"></i
+        ></a>
+        <a href="https://vk.com/id616254776"
+          ><i class="fa-brands fa-vk"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <h4>about</h4>
+    <a href="Delivery">delivery information</a>
+    <a href="privat">privacy policy</a>
+  </div>
+  <div class="col">
+    <h4>my account</h4>
+    <a href="register">Sign in</a>
+  </div>
+  <div class="copyright">
+    <p>
+      &copy; <span class="date">2023</span> 
+    </p>
+  </div>
+</footer>
+<!-- javascript -->
+<script src="{% static 'main/js/app.js' %}"></script>
+</body>
+</html>

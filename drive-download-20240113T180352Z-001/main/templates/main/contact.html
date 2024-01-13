@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/8760c8464a.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}" />
+    <title>E-Commerce || Contact</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <a href="/"
+        ><img src="{% static 'main/img/logo.png' %}" alt="logo picture" class="logo"
+      /></a>
+      <div>
+        <ul id="navbar">
+          <li><a href="/">home</a></li>
+          <li><a href="shop1">shop</a></li>
+          <li><a class="active" href="contact.html">contact</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="logout">logout</a></li>
+          <li style="text-transform: none;">{{ user.username }}</li>
+          {% else %}
+          <li><a href="login">login</a></li>
+          <li><a href="register">sign in</a></li>
+          {% endif %}
+          <li>
+            <a id="lg-bag" href="{% url 'main:check_cart' %}"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a id="close" href="#"><i class="fa-solid fa-xmark"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+        <i id="bar" class="fa-solid fa-bars"></i>
+      </div>
+    </header>
+
+    <!-- hero section start -->
+    <section id="page-header" class="about-header" style="background-image: url('{% static 'main/img/banner.png' %}');">
+      <h2>#let's_talk</h2>
+      <p>Leave your message!</p>
+    </section>
+
+    <!-- contact section -->
+    <section id="contact-details" class="section-p1">
+      <div class="details">
+        <span>Contact</span>
+        <h2>Contact us or talk with our agency</h2>
+        <h3>Head office</h3>
+        <div>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Казахстан, Астана, Айтеке би 14</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <p>amanbay@mail.ru</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <p>+ 7 775 442 0663</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-clock"></i>
+            <p>Everyday 9:00 - 21:00</p>
+          </li>
+        </div>
+      </div>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5006.851061111932!2d71.38233439999999!3d51.13750360000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1703526006537!5m2!1sru!2skz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    </section>
+
+    <!--form section  -->
+    <section id="form-details">
+    <form action="{% url 'main:contact_form' %}" method="post">
+    {% csrf_token %}
+    <span>Leave message</span>
+    <h2>We are glad to know about you</h2>
+    <input type="text" name="name" placeholder="Your name" />
+    <input type="text" name="email" placeholder="E-mail" />
+    <input type="text" name="reason" placeholder="Reason" />
+    <textarea name="message" cols="30" rows="10" placeholder="Your message"></textarea>
+    <button type="submit" class="normal">Предоставить</button>
+</form>
+      <div class="people">
+        <div>
+          <img src="/Users/pc/Downloads/Unknown-3" alt="" />
+          <p>
+            <span>Мирас Аманбай</span> Креативный менеджер <br />Телефон: + 7 775
+            442 0663 <br />Email: amanbay-miras@mail.ru
+          </p>
+        </div>
+        <div>
+          <img src="/Users/pc/Downloads/Unknown" alt="" />
+          <p>
+            <span>Куаныш Арман</span> Менеджер по тех. части <br />Телефон: +
+            7 705 272 7057 <br />Email: Kuan@gmail.com
+          </p>
+        </div>
+        <div>
+          <img src="/Users/pc/Downloads/Unknown-2" alt="" />
+          <p>
+            <span>Топаев Данияр</span> Менеджер по клиентам <br />Телефон: + 7 707
+            271 2359 <br />Email: Topaev@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- newsletter section  -->
+    <section id="newsletter" class="section-p1 section-m1">
+    </section>
+    <!-- footer section -->
+    <footer class="section-p1">
+      <div class="col">
+        <h4>contacts</h4>
+        <p><strong>address:</strong> Kazahstan, astana</p>
+        <p><strong>number:</strong> +7 775 442 0663</p>
+        <p><strong>working hours:</strong> 24/7</p>
+        <div class="follow">
+          <h4>subscribe</h4>
+          <div class="icon">
+            <a href="https://www.instagram.com/mirasamanbai/?next=%2F"
+              ><i class="fa-brands fa-instagram-square"></i
+            ></a>
+            <a href="https://vk.com/id616254776"
+              ><i class="fa-brands fa-vk"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>about</h4>
+        <a href="Delivery">delivery information</a>
+        <a href="privat">privacy policy</a>
+      </div>
+      <div class="col">
+        <h4>my account</h4>
+        <a href="register">Sign in</a>
+      </div>
+      <div class="copyright">
+        <p>
+          &copy; <span class="date">2023</span> 
+        </p>
+      </div>
+    </footer>
+    <!-- javascript -->
+    <script src="{% static 'main/js/app.js' %}"></script>
+  </body>
+</html>

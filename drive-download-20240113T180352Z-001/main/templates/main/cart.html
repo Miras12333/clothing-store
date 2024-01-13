@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+table.cart-table th,
+table.cart-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table.cart-table th {
+    background-color: #f2f2f2;
+}
+
+
+p.total {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+
+.checkout-btn {
+  display: block;
+  width: 200px; 
+  margin: 0 auto; 
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #3498db;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+a.checkout-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05); 
+}
+</style>
+<body>
+
+<h1>Cart</h1>
+
+{% if cart_items %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.item.name }}</td>
+                    <td>{{ item.item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="total">Summary: {{ total }}</p>
+
+    <a href="{% url 'main:checkout' %}" class="checkout-btn">Order</a>
+{% else %}
+    <p>Your cart is empty</p>
+{% endif %}
+
+</body>
+</html>
